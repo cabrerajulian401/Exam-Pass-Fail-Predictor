@@ -1,8 +1,15 @@
 import pickle 
 from flask import Flask, request, jsonify 
 import numpy as np 
+from flask_cors import CORS
+
 
 print("Loading Flask App")
+
+
+app = Flask(__name__)
+CORS(app)
+
 
 
 try:
@@ -19,8 +26,8 @@ preprocessor = data["preprocessor"]  # Retrieve the Preprocessing pipeline
 
 # intialize Flask app before using @app.route
 
-app = Flask(__name__)
 
+@app.route('/')
 def home():
     return "Flask is running!"
 
@@ -44,6 +51,6 @@ def predict():
         return jsonify({"error": str(e)})
 
 
+
 if __name__ == "__main__":
-    print("Starting Flask Server")
-    app.run(debug=True)
+    app.run( debug=True)
