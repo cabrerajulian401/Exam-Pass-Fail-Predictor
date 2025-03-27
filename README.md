@@ -12,7 +12,7 @@ Note: The app UI says “Pass/Fail Predictor,” but this was later rebranded as
 
 ## 🛠️ Tools & Technologies
 
-- **Python+** — Core programming language  
+- **Python** — Core programming language  
 - **Flask** — Backend web framework for API creation  
 - **scikit-learn** — Machine learning library (logistic regression)  
 - **pandas** — Data manipulation and CSV handling   
