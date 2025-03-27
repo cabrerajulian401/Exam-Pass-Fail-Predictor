@@ -4,7 +4,7 @@ A machine learning web application that predicts whether a college student will 
 
 ---
 
-## Video Demonstration, Click on Below!
+## Video Demonstration, Click on Thumbnail Below!
 [![Watch the demo](https://img.youtube.com/vi/k4eLYwIIkSg/0.jpg)](https://youtu.be/k4eLYwIIkSg)
 
 
