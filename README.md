@@ -25,7 +25,7 @@ Note: The app UI says “Pass/Fail Predictor,” but this was later rebranded as
 
 ## ✨ Features
 
-- ✅ **ML-Based Prediction**: Logistic regression predicts "pass" or "fail" for Students' Next Exam
+- ✅ **ML-Based Prediction**: Logistic regression predicts "pass" or "fail" for Students' Next Exam with **90% Accuracy (Model Performance)**
 - ✅ **RESTful Flask API**: Exposes a `/predict` route for JSON requests
 - ✅ **ML Input Features**: Uses `hours studied` and `test score`
 - ✅ **Auto Model Loading**: Pretrained `.pkl` model is loaded on startup
