@@ -38,7 +38,7 @@ Note: The app UI says “Pass/Fail Predictor,” but this was later rebranded as
 
 ## 🚧 Work in Progress 
 
-07/05/25 - * UI was Upgraded to a Cleaner and Techno Design 
+07/05/25 - UI was Upgraded to a Cleaner and Techno Design 
 
 * Will soon Deploy to AWS EC2 Server or Vercel
 
