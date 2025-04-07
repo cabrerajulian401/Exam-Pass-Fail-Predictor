@@ -5,7 +5,9 @@ A machine learning web application that predicts whether a college student will 
 ---
 
 ## Video Demonstration, Click on Thumbnail Below!
-[![Watch the demo](https://img.youtube.com/vi/k4eLYwIIkSg/0.jpg)](https://youtu.be/k4eLYwIIkSg)
+[![Watch the video](https://img.youtube.com/vi/FLkFcHs1KbQ/hqdefault.jpg)](https://www.youtube.com/watch?v=FLkFcHs1KbQ)
+
+
 
 
 Note: The app UI says “Pass/Fail Predictor,” but this was later rebranded as “College Exam Predictor.” Functionality remains the same.
