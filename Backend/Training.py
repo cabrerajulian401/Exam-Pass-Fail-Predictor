@@ -47,7 +47,7 @@ print("Accuracy for Test: ", accuracy_test)
 
 
 
-new_instance = np.array([[5, 99]]) # shape (1, number_of_features)
+new_instance = np.array([[5, 99, 10]]) # shape (1, number_of_features)
 
 # Standardize the new instance (CRITICAL STEP)
 new_instance_std = process.standardize_instance(new_instance)

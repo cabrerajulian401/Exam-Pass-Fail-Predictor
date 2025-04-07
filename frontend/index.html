@@ -3,16 +3,40 @@
 <head>
   <title>Pass/Fail Predictor</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Add Cyberpunk/Futuristic font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>🎓 Pass/Fail Predictor</h1>
+    <div class="predictor-card">
+      <h1 class="title">College Exam Predictor</h1>
+      
+      
+      <div class="description">
+        Use your previous exam, study hours , & sleep to predict if you will Pass or Fail
+      </div>
 
-    <input type="number" id="scoreInput" placeholder="Enter Previous Exam Score" />
-    <input type="number" id="hoursInput" placeholder="Enter Hours Studied " />
-    <button onclick="submitScore()">Predict</button>
-   
-    <p id="result"></p>
+      <div class="input-group">
+        <label for="scoreInput">PREVIOUS SCORE</label>
+        <input type="number" id="scoreInput" placeholder="Enter Score (0-100)" />
+      </div>
+
+      <div class="input-group">
+        <label for="hoursInput">STUDY HOURS</label>
+        <input type="number" id="hoursInput" placeholder="Enter Hours" />
+      </div>
+
+      <div class="input-group">
+        <label for="sleepInput">SLEEP DURATION</label>
+        <input type="number" id="sleepInput" placeholder="Enter Sleep Hours (0-12)" />
+      </div>
+
+      <button onclick="submitScore()" class="predict-button">
+        <span class="button-text">ANALYZE</span>
+      </button>
+
+      <div id="result" class="result"></div>
+    </div>
   </div>
 
   <script src="script.js"></script>

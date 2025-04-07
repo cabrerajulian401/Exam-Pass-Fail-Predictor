@@ -1,53 +1,84 @@
 async function submitScore() {
-    // Get the values for score and hours from the input fields
-    const scoreInput = document.getElementById("scoreInput").value;  // Corrected ID
-    const hoursInput = document.getElementById("hoursInput").value;  // Corrected ID
+    // Get the values for score, hours, and sleep
+    const scoreInput = document.getElementById("scoreInput").value;
+    const hoursInput = document.getElementById("hoursInput").value;
+    const sleepInput = document.getElementById("sleepInput").value;
 
     // Convert the inputs to numbers and validate
     const hours = parseFloat(hoursInput);
     const score = parseFloat(scoreInput);
+    const sleep = parseFloat(sleepInput);
 
-    if (isNaN(hours) || isNaN(score)) {
-        document.getElementById("result").textContent = "Please enter valid numbers for both score and hours!";
+    // Get the result div
+    const resultDiv = document.getElementById("result");
+
+    // Validate inputs
+    if (isNaN(hours) || isNaN(score) || isNaN(sleep)) {
+        resultDiv.className = 'result show result-fail';
+        resultDiv.innerHTML = "Please enter valid numbers for all fields";
         return;
     }
 
-    // Create the features array to send to Flask (this represents a NumPy array)
-    const features = [hours, score];  // Format as a regular array
-    console.log("Features to send:", features);
+    if (score < 0 || score > 100) {
+        resultDiv.className = 'result show result-fail';
+        resultDiv.innerHTML = "Score must be between 0 and 100";
+        return;
+    }
+
+    if (sleep < 0 || sleep > 12) {
+        resultDiv.className = 'result show result-fail';
+        resultDiv.innerHTML = "Sleep must be between 0 and 12 hours";
+        return;
+    }
+
+    // Create the features array
+    const features = [hours, score, sleep];
+    console.log("Sending features:", features);
 
     try {
-        // Send the POST request to the Flask backend's /predict route
+        // Show loading state
+        resultDiv.className = 'result show';
+        resultDiv.innerHTML = `
+            <div class="loading">
+                ANALYZING DATA...
+            </div>
+        `;
+
+        // Send request to backend
         const response = await fetch("http://127.0.0.1:5000/predict", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"  // Specify content type as JSON
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({ features: features })  // Send features as JSON
+            body: JSON.stringify({ features: features })
         });
 
-        // Parse the server response
         const data = await response.json();
-        console.log("Response from server:", data);  // Debug log
+        console.log("Received data:", data);
 
-        // If the server returned a predicted class, display it
         if (data.predicted_class !== undefined) {
             const predictedClass = data.predicted_class === 1 ? "Pass" : "Fail";
             const predictedProb = data.predicted_probability;
 
-            // Display the result with prediction class and formatted probabilities
-            document.getElementById("result").innerHTML =
-                `Prediction: <strong>${predictedClass}</strong><br> 
-                Probability of Pass: <strong>${(predictedProb[1] * 100).toFixed(2)}%</strong><br>
-                Probability of Fail: <strong>${(predictedProb[0] * 100).toFixed(2)}%</strong>`;
+            resultDiv.className = `result show result-${predictedClass.toLowerCase()}`;
+            resultDiv.innerHTML = `
+                <div class="prediction-result">
+                    <div class="prediction-title">PREDICTION: ${predictedClass}</div>
+                    <div class="prediction-probabilities">
+                        <div>Pass Probability: ${(predictedProb[1] * 100).toFixed(1)}%</div>
+                        <div>Fail Probability: ${(predictedProb[0] * 100).toFixed(1)}%</div>
+                    </div>
+                </div>
+            `;
         } else {
-            document.getElementById("result").textContent = `Error: ${data.error || "Unknown error"}`;
+            resultDiv.className = 'result show result-fail';
+            resultDiv.innerHTML = `Error: ${data.error || "Unknown error"}`;
         }
 
     } catch (err) {
-        // Handle fetch errors
-        console.error("Fetch error:", err);
-        document.getElementById("result").textContent = "Error connecting to server.";
+        console.error("Error:", err);
+        resultDiv.className = 'result show result-fail';
+        resultDiv.innerHTML = "Error connecting to server. Please try again.";
     }
 }
 
