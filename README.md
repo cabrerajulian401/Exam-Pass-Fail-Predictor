@@ -1,6 +1,6 @@
 # 🎓 College Exam Pass-Fail Predictor
 
-A machine learning web application that predicts whether a college student will pass or fail an exam based on study hours and test scores. Built using **Python**, **Flask**, and **Logistic Regression Model** trained on Real Student Data, with a lightweight frontend interface. This project demonstrates the deployment of a trained ML model via an API endpoint. Model Follows an EDA -> Proprocessing -> Splitting -> Training Machine learning Development Cycle.
+A machine learning web application that predicts whether a college student will pass or fail an exam based on previous exam score, study hours, and a students sleep the night before the Exam. Built using **Python**, **Flask**, and **Logistic Regression Model** trained on Real Student Data, with a lightweight and modern frontend interface. This project demonstrates the deployment of a trained ML model via an API endpoint. Model Follows an EDA -> Proprocessing -> Splitting -> Training Machine learning Development Cycle.
 
 ---
 
