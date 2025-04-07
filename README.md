@@ -5,7 +5,8 @@ A machine learning web application that predicts whether a college student will 
 ---
 
 ## Video Demonstration, Click on Thumbnail Below!
-[![Watch the video](https://img.youtube.com/vi/FLkFcHs1KbQ/hqdefault.jpg)](https://www.youtube.com/watch?v=FLkFcHs1KbQ)
+[![Click on Image](https://img.youtube.com/vi/1m-eUC_Me-o/0.jpg)](https://www.youtube.com/watch?v=1m-eUC_Me-o)
+
 
 
 
