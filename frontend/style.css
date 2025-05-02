@@ -28,7 +28,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 800px; /* Increased from 600px */
+    max-width: 800px; 
     margin: 20px;
 }
 

@@ -21,13 +21,13 @@ process.standardize_data()
 
 
 
-# Initialize an instance of the LogisticRegression 
+
 
 logreg_model = LogisticRegression(random_state = 1)
 
 logreg_model = logreg_model.fit(process.x_train_std, process.y_train)
 
-# Testing Model on the Training Data 
+
 
 y_pred_train = logreg_model.predict(process.x_train_std)
 
@@ -37,7 +37,7 @@ print(accuracy_train)
 
 print("Accuracy for Train: ", accuracy_train)
 
-# Testing Model on the Testing Data
+
 
 y_pred_test = logreg_model.predict(process.x_test_std)
 
@@ -49,16 +49,15 @@ print("Accuracy for Test: ", accuracy_test)
 
 new_instance = np.array([[5, 99, 10]]) # shape (1, number_of_features)
 
-# Standardize the new instance (CRITICAL STEP)
+
 new_instance_std = process.standardize_instance(new_instance)
 
 # Predict class
 predicted_label = logreg_model.predict(new_instance_std)
 
-# Predict probability (optional, but useful):
 predicted_prob = logreg_model.predict_proba(new_instance_std)
 
-# Print clear results:
+# Print  results:
 print("Predicted Class:", predicted_label[0])
 print("Predicted Probability:", predicted_prob[0])
 
