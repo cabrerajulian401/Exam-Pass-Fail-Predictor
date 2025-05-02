@@ -50,6 +50,7 @@ body {
     margin-bottom: 10px;
     background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
 }
